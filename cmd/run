@@ -7,6 +7,8 @@ function setup()
     source .env
     export DOCKER_NETWORK \
         DOCKER_PUBLIC_URL
+
+    sed -i "/server_name [a-z]+/c\    server_name $DOCKER_PUBLIC_URL;" ./site.conf
 }
 
 function run()
